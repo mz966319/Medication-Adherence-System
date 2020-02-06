@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "873345456322",
+    "firebase_url": "https://medical-project-49556.firebaseio.com",
+    "project_id": "medical-project-49556",
+    "storage_bucket": "medical-project-49556.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873345456322:android:3f571dc5cc8164318a835b",
+        "android_client_info": {
+          "package_name": "com.example.medicalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873345456322-1hj053rpc7r2bg8amhbdirnmrgggqdh7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medicalproject",
+            "certificate_hash": "aa6d7f1fa035525192d4a15b8ee2cde88b6da861"
+          }
+        },
+        {
+          "client_id": "873345456322-u8j1b1kfvkhrp8v6ihedmic1lsuvrq2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJthCmfvUxPbMrhmbFe_-BkNAuY21BlrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873345456322-u8j1b1kfvkhrp8v6ihedmic1lsuvrq2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
