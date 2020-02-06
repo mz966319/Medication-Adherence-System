@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My Medicine List</string>
+    <string name="AdBtn_name">Add Medicine</string>
+    <string name="PatientName">John Smith</string>
+
+</resources>
