@@ -14,17 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Drug Name" />
-
-    <EditText
-        android:id="@+id/Label_ET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Label" />
+        android:hint="Drug Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/Dsg_ET"
@@ -32,8 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Dosage" />
+        android:hint="Dosage"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/Doctor_ET"
