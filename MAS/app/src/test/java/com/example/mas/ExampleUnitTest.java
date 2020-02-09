@@ -1,5 +1,7 @@
 package com.example.mas;
 
+import android.widget.EditText;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +13,18 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void Username_Empty_ValidationTest(){
+        User user1 = new User("","testp1");
+        User user2 = new User("testu2", "testp2");
+        assertFalse(user1.username_Empty_Validate());
+        assertTrue(user2.username_Empty_Validate());
+    }
+
+    @Test
+    public void Password_Empty_ValidationTest(){
+        User user1 = new User("testu1","");
+        User user2 = new User("testu2", "testp2");
+        assertFalse(user1.password_Empty_Validate());
+        assertTrue(user2.password_Empty_Validate());
     }
 }

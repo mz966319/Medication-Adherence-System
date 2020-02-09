@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "785202437286",
+    "firebase_url": "https://medicaladherenceproject.firebaseio.com",
+    "project_id": "medicaladherenceproject",
+    "storage_bucket": "medicaladherenceproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785202437286:android:077271133453daeb776867",
+        "android_client_info": {
+          "package_name": "com.example.mas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785202437286-7t1rtve8v52aspbe3h7tjpt90g0i57at.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mas",
+            "certificate_hash": "a8f79960e079650f28c9b3ac117d200a065d1cc8"
+          }
+        },
+        {
+          "client_id": "785202437286-i7rdffgrsimpa3ov058e1sso7qjb0k7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfJ4jO_eK8EcotHU5GssQoRW8JXdYIMjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785202437286-i7rdffgrsimpa3ov058e1sso7qjb0k7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
