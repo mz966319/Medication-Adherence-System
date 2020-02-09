@@ -24,5 +24,6 @@ public class Med_Info {
     public void setMedInfo(String medInfo) {
         this.medInfo = medInfo;
     }
+    /**/
 
 }
