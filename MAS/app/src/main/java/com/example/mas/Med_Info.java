@@ -12,17 +12,13 @@ public class Med_Info {
     public String getMedName() {
         return medName;
     }
-
     public void setMedName(String medName) {
         this.medName = medName;
     }
-
     public String getMedInfo() {
         return medInfo;
     }
-
     public void setMedInfo(String medInfo) {
         this.medInfo = medInfo;
     }
-
 }

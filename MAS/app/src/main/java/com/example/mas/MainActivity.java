@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 // import org.junit.Test;
 
 //import static org.junit.Assert.*;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         Login = (Button)findViewById(R.id.BtnLogin);
         Register = (Button)findViewById(R.id.BtnRegister);
         MedProfile = (Button)findViewById(R.id.BtnAddProfile);
@@ -34,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
                 Password = (EditText)findViewById(R.id.ETPassword);
                 String username = Username.getText().toString();
                 String password = Password.getText().toString();
-                User user = new User(username, password);
-                user.username_Empty_Validate();
-                user.password_Empty_Validate();
+                //User user = new User(username, password);
+                //user.username_Empty_Validate();
+                //user.password_Empty_Validate();
+
+                Intent intent = new Intent(MainActivity.this, WelcomeUser.class);
+                startActivity(intent);
             }
         });
 
