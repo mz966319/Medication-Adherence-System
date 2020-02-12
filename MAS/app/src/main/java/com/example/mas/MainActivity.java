@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, medicalProfile.class);
         startActivity(intent);
     }
-//    public void MoveToMedAddMedActivity(View view){
-//        Intent intent = new Intent(MainActivity.this, AddMedicine.class);
-//        startActivity(intent);
-//    }
+    public void MoveToMedAddMedActivity(View view){
+        Intent intent = new Intent(MainActivity.this, AddMedicine.class);
+        startActivity(intent);
+  }
     /*end of tmp code*/
 }

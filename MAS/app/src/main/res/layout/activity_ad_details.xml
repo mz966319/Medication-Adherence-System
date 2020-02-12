@@ -1,129 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="40dp"
-    tools:context=".AdDetails">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/dosage"
+        android:layout_width="289dp"
+        android:layout_height="37dp"
+        android:hint="Enter the dosage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <TextView
+        android:id="@+id/doctorName"
+        android:layout_width="289dp"
+        android:layout_height="37dp"
+        android:hint="Enter doctor name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <TextView
+        android:id="@+id/drugName"
+        android:layout_width="289dp"
+        android:layout_height="37dp"
+        android:hint="Enter the drug name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.066" />
 
     <EditText
-        android:id="@+id/DrgNm_ET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Drug Name"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/Dsg_ET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:hint="Dosage"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/Doctor_ET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:id="@+id/editText3"
+        android:layout_width="78dp"
+        android:layout_height="41dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Doctor Name" />
+        android:text="Usage Period"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctorName"
+        app:layout_constraintVertical_bias="0.037" />
 
-    <CheckBox
-        android:id="@+id/CB1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:text="EveryDay" />
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="312dp"
+        android:layout_height="192dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintVertical_bias="0.0">
 
-    <CheckBox
-        android:id="@+id/CB2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="115dp"
-        android:text="Odd Days" />
+        <RadioButton
+            android:id="@+id/justOnce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Just Once" />
 
-    <CheckBox
-        android:id="@+id/CB3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="230dp"
-        android:text="Even Days" />
+        <RadioButton
+            android:id="@+id/everyday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Everyday" />
 
-    <CheckBox
-        android:id="@+id/CB4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:text="Every Week" />
+        <RadioButton
+            android:id="@+id/oddDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Odd Days" />
 
-    <CheckBox
-        android:id="@+id/CB5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginLeft="115dp"
-        android:text="Every Month" />
+        <RadioButton
+            android:id="@+id/evenDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Even Days" />
 
-    <CheckBox
-        android:id="@+id/CB6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginLeft="230dp"
-        android:text="Just Once" />
+        <RadioButton
+            android:id="@+id/everyWeek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Every Week" />
 
-    <CheckBox
-        android:id="@+id/CB7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:text="Morning" />
+        <RadioButton
+            android:id="@+id/everyMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Every Month" />
 
-    <CheckBox
-        android:id="@+id/CB8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="115dp"
-        android:text="Noon" />
-
-    <CheckBox
-        android:id="@+id/CB9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="230dp"
-        android:text="Night" />
-
-    <TextView
-        android:id="@+id/TV1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:text="Usage Period" />
-
-    <TextView
-        android:id="@+id/TV2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:text="Usage Period" />
+    </RadioGroup>
 
     <Button
-        android:id="@+id/SaveBtn"
+        android:id="@+id/saveDrug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
-        android:layout_alignParentEnd="true"
-        android:text="Button" />
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
