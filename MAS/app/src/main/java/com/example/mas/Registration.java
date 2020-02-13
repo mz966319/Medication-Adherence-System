@@ -76,8 +76,8 @@ public class Registration extends AppCompatActivity {
             Toast.makeText(this,"Empty full name!",Toast.LENGTH_LONG).show();
         }
         else {
-            databaseUsers = database.getReference().child(username);
-            databaseUsers.setValue(user);
+            databaseUsers = database.getReference().child("users");
+            databaseUsers.child(username).setValue(user);
             Toast.makeText(Registration.this,"DONE!!!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(Registration.this, WelcomeUser.class);
             startActivity(intent);

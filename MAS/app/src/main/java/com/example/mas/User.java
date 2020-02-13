@@ -11,6 +11,9 @@ public class User {
         this.password = password;
         this.fullname = fullname;
     }
+    public User(String username){
+        this.username = username;
+    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -96,6 +99,9 @@ public class User {
         return (result);
     }
 
+    /*public int compareTo(User u) {
+        return Integer.compare(this.username, u.getUsername());
+    }*/
 
     /*public boolean usernameIsEmpty() {
         return this.username.equals("");
