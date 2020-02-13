@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class Registration extends AppCompatActivity {
+    public static final String EXTRA_MESSAGE = "com.example.testProject.MESSAGE";
 
     private FirebaseDatabase  database = FirebaseDatabase.getInstance();//.getReference();
     private DatabaseReference databaseUsers = database.getReference("users");
