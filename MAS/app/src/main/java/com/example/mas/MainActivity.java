@@ -63,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 String username = Username.getText().toString();
                 String password = Password.getText().toString();
                 String logInMessage = "Invalid username or password";
-               /* for(int i = 0; i <usersList.size();i++){
-                    User tryUser = usersList.get(i);*/
                 for(User tryUser : usersList){
                     if(tryUser.getUsername().equals(username)){
                         if(tryUser.getPassword().equals(password)){

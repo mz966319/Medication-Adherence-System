@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MedProfile">
 
     <TextView
         android:id="@+id/MedNameTextView"
         android:layout_width="136dp"
         android:layout_height="38dp"
         tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="23dp" />
+        tools:layout_editor_absoluteY="23dp"
+        tools:ignore="MissingConstraints" />
 
     <ScrollView
         android:id="@+id/MedInfoScrollView"
@@ -43,5 +44,6 @@
         android:text="Calender"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="555dp" />
+        tools:layout_editor_absoluteY="555dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
