@@ -66,13 +66,13 @@ public class AddMedicine extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        /*list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-                Intent intent = new Intent(AddMedicine.this, MainActivity.class);
+                Intent intent = new Intent(AddMedicine.this, MedProfile2.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
     }
     public void openNew(View view) {
