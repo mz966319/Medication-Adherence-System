@@ -1,10 +1,10 @@
 package com.example.mas;
 
-public class Med_Info {
+public class Medicine {
     private String medName;
     private String medInfo;
 
-    public Med_Info(String medName, String medInfo) {
+    public Medicine(String medName, String medInfo) {
         this.medName = medName;
         this.medInfo = medInfo;
     }
