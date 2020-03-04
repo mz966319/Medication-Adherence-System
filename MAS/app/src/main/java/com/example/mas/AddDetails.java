@@ -59,10 +59,11 @@ public class AddDetails extends AppCompatActivity {
                     Toast.makeText(AddDetails.this,"Error doctor name!", Toast.LENGTH_LONG).show();
                 } else {
                     myRef = database.getReference().child("medicines");
-
-                    myRef.child(drugname).child("drugname").setValue(drugname);
-                    myRef.child(drugname).child("dosage").setValue(dosage);
-                    myRef.child(drugname).child("doctorname").setValue(doctorname);
+                   Medicine med = new Medicine(drugname, dosage, doctorname);
+                   myRef.child(drugname).setValue(med);
+//                    myRef.child(drugname).child("drugname").setValue(drugname);
+//                    myRef.child(drugname).child("dosage").setValue(dosage);
+//                    myRef.child(drugname).child("doctorname").setValue(doctorname);
 
                     Toast.makeText(AddDetails.this, "Firebase connection success", Toast.LENGTH_LONG).show();
 

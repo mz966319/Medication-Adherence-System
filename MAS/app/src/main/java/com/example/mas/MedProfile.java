@@ -20,7 +20,7 @@ public class MedProfile extends AppCompatActivity {
     }
 
     public void MoveToMedActivity(View view){
-        Intent intent = new Intent(MedProfile.this, com.example.mas.AddMedicine.class);
+        Intent intent = new Intent(MedProfile.this, AddMedicine.class);
         startActivity(intent);
     }
     TextView MedNameTextView;

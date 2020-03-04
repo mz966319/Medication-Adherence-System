@@ -19,7 +19,7 @@ public class MedProfile2 extends AppCompatActivity {
     }
 
     public void MoveToMedActivity(View view){
-        Intent intent = new Intent(MedProfile2.this, com.example.mas.AddMedicine.class);
+        Intent intent = new Intent(MedProfile2.this, AddMedicine.class);
         startActivity(intent);
     }
 }
