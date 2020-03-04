@@ -9,111 +9,159 @@
     <EditText
         android:id="@+id/dosage"
         android:layout_width="289dp"
-        android:layout_height="37dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="17dp"
         android:hint="Enter the dosage"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintTop_toBottomOf="@+id/drugName" />
 
     <EditText
         android:id="@+id/doctorName"
         android:layout_width="289dp"
-        android:layout_height="37dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="17dp"
         android:hint="Enter doctor name"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintTop_toBottomOf="@+id/dosage" />
 
     <EditText
         android:id="@+id/drugName"
-        android:layout_width="289dp"
-        android:layout_height="37dp"
+        android:layout_width="288dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="40dp"
         android:hint="Enter the drug name"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="78dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Usage Period"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctorName"
-        app:layout_constraintVertical_bias="0.037" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="312dp"
-        android:layout_height="192dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
-        app:layout_constraintVertical_bias="0.0">
-
-        <RadioButton
-            android:id="@+id/justOnce"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Just Once" />
-
-        <RadioButton
-            android:id="@+id/everyday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Everyday" />
-
-        <RadioButton
-            android:id="@+id/oddDays"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Odd Days" />
-
-        <RadioButton
-            android:id="@+id/evenDays"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Even Days" />
-
-        <RadioButton
-            android:id="@+id/everyWeek"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Every Week" />
-
-        <RadioButton
-            android:id="@+id/everyMonth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Every Month" />
-
-    </RadioGroup>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/saveDrug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+        app:layout_constraintTop_toBottomOf="@+id/notificationLayout" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="167dp"
+        android:layout_height="29dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:onClick="setShowNotificationOptions"
+        android:text="Set notification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <EditText
+        android:id="@+id/TotalDosageEditText   "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="Enter total dosage    "
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctorName" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="Usage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TotalDosageEditText   " />
+
+    <LinearLayout
+        android:id="@+id/notificationLayout"
+        android:layout_width="281dp"
+        android:layout_height="61dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:text="Hour "
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Minute " />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Period " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="288dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinnerHours"
+                android:layout_width="113dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/spinnerMins"
+                android:layout_width="113dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                tools:layout_editor_absoluteX="108dp"
+                tools:layout_editor_absoluteY="402dp" />
+
+            <Spinner
+                android:id="@+id/spinnerAPm"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

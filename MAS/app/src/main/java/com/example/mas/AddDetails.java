@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +26,15 @@ public class AddDetails extends AppCompatActivity {
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("medicines");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_details);
+
+        CreateSpinners();
+        LinearLayout notificationLayout = (LinearLayout) findViewById(R.id.notificationLayout);
+
+        notificationLayout.setVisibility(View.INVISIBLE);
 
         Button button = (Button)findViewById(R.id.saveDrug);
         button.setOnClickListener(new View.OnClickListener() {
@@ -62,5 +71,57 @@ public class AddDetails extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+
+    public void setShowNotificationOptions(View view){
+        CheckBox checkBox = (CheckBox)findViewById(R.id.checkBox);
+        LinearLayout notificationLayout = (LinearLayout) findViewById(R.id.notificationLayout);
+
+        if(checkBox.isChecked()){
+            notificationLayout.setVisibility(View.VISIBLE);
+        }
+        if(!checkBox.isChecked()){
+            notificationLayout.setVisibility(View.INVISIBLE);
+        }
+    }
+
+
+
+    private void CreateSpinners(){
+        String[] arraySpinnerUsage = new String[] {
+                "Just Once", "Everyday", "Odd Days", "Even Days", "Every Week", "Every Month"};
+        Spinner usageSpinner = (Spinner) findViewById(R.id.spinner);
+        usageSpinner.setPrompt("Usage Period");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinnerUsage);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        usageSpinner.setAdapter(adapter);
+
+        String[] arraySpinnerHours = new String[] {
+                "1", "2", "3", "4", "5", "6","7","8","9","10","11","12"};
+        Spinner hoursSpinner = (Spinner) findViewById(R.id.spinnerHours);
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinnerHours);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hoursSpinner.setAdapter(adapter);
+
+        String[] arraySpinnerMins= new String[59];
+        for(int i=0;i<59;i++){
+            arraySpinnerMins[i]=Integer.toString((i+1));
+        }
+        Spinner minsSpinner = (Spinner) findViewById(R.id.spinnerMins);
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinnerMins);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        minsSpinner.setAdapter(adapter);
+
+        String[] arraySpinnerAPM = new String[] {"AM", "PM"};
+        Spinner APMSpinner = (Spinner) findViewById(R.id.spinnerAPm);
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinnerAPM);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        APMSpinner.setAdapter(adapter);
     }
 }
