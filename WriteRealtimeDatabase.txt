@@ -1,0 +1,104 @@
+package CSCI5308.assignment2;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView invalidPreferredUserName;
+    private TextView invalidEmailAddress;
+    List<User> userList;
+
+    FirebaseDatabase  database = FirebaseDatabase.getInstance();
+    //our database reference object
+    DatabaseReference ref;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        invalidPreferredUserName = (TextView)findViewById(R.id.textViewPrefferedUsernameInvalid);
+        invalidEmailAddress = (TextView)findViewById(R.id.textViewEmailAddressInvalid);
+        hideInvalidEmailAddress();
+        hideInvalidPreferredUsername();
+
+        ref = database.getReference("users");
+        userList = new ArrayList<>();
+
+    }
+
+    private void showInvalidEmailAddress()
+    {
+        invalidEmailAddress.setVisibility(TextView.VISIBLE);
+    }
+
+    private void showInvalidPreferredUsername()
+    {
+        invalidPreferredUserName.setVisibility(TextView.VISIBLE);
+    }
+
+    private void hideInvalidEmailAddress()
+    {
+        invalidEmailAddress.setVisibility(TextView.INVISIBLE);
+    }
+
+    private void hideInvalidPreferredUsername()
+    {
+        invalidPreferredUserName.setVisibility(TextView.INVISIBLE);
+    }
+
+    private boolean validateInput(User user)
+    {
+        boolean isPreferredUserNameValid = user.isPreferredUserNameValid();
+        boolean isEmailAddressValid = user.isEmailAddressValid();
+        if (isPreferredUserNameValid)
+        {
+            hideInvalidPreferredUsername();
+        }
+        else
+        {
+            showInvalidPreferredUsername();
+        }
+        if (isEmailAddressValid)
+        {
+            hideInvalidEmailAddress();
+        }
+        else
+        {
+            showInvalidEmailAddress();
+        }
+        return isEmailAddressValid && isPreferredUserNameValid;
+    }
+
+    public void onSignupClick(View view)
+    {
+        User user = new User();
+        EditText editText = (EditText)findViewById(R.id.editTextPreferredUsername);
+        user.setPreferredUserName(editText.getText().toString());
+        editText = (EditText)findViewById(R.id.editTextEmailAddress);
+        user.setEmailAddress(editText.getText().toString());
+        if (validateInput(user))
+        {
+            ref.child(user.getPreferredUserName()).setValue(user);
+
+            // Show welcome screen
+            Intent intent = new Intent(this, WelcomeActivity.class);
+            intent.putExtra(WelcomeActivity.PREFERRED_USERNAME, user.getPreferredUserName());
+            intent.putExtra(WelcomeActivity.EMAIL_ADDRESS, user.getEmailAddress());
+            startActivity(intent);
+        }
+    }}
