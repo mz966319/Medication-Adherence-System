@@ -5,12 +5,18 @@ import java.time.LocalDate;
 public class MedRecord {
     String username;
     String med_name;
-    LocalDate date;
+    String date;
+    String dosage;
+    boolean takenStatus = false;
 
-    public MedRecord(String username, String med_name, LocalDate date) {
+    public MedRecord() { }
+
+    public MedRecord(String username, String medname) {
         this.username = username;
-        this.med_name = med_name;
-        this.date = date;
+        this.med_name = medname;
+        this.dosage ="";
+        this.date = "2000-00-00";
+        this.takenStatus = false;
     }
 
     public String getUsername() {
@@ -29,11 +35,22 @@ public class MedRecord {
         this.med_name = med_name;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public String getDate() { return date; }
+
+    public String getQuantity() { return dosage; }
+
+    public void setQuantity(String quantity) { this.dosage = quantity; }
+
+    public boolean getTakenStatus() { return takenStatus; }
+
+    public void setTakenStatus(boolean takenStatus) { this.takenStatus = takenStatus; }
+
+    @Override
+    public String toString() {
+        return "[" + username + " : " + med_name + "]  "+ date + " ,  dosage: " + dosage + "    taken? " + takenStatus;
     }
 }
