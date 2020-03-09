@@ -31,6 +31,7 @@ import java.util.regex.Pattern;
 
 public class Registration extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.testProject.MESSAGE";
+    private static final String USER = "com.example.a2.MESSAGE";
 
     private FirebaseDatabase  database = FirebaseDatabase.getInstance();//.getReference();
     private DatabaseReference databaseUsers = database.getReference("users");

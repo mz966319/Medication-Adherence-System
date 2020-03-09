@@ -2,21 +2,21 @@ package com.example.mas;
 
 public class Medicine {
 
-    private String drugname;
+    private String drugName;
     private String dosage;
-    private String doctorname;
+//    private String doctorname;
     public Medicine(){}
-    public Medicine(String drugname,String dosage, String doctorname){
-        this.drugname = drugname;
+    public Medicine(String drugName,String dosage){
+        this.drugName = drugName;
         this.dosage = dosage;
-        this.doctorname = doctorname;
+//        this.doctorname = doctorname;
     }
-    public String getDrugname() {
-        return drugname;
+    public String getDrugName() {
+        return drugName;
     }
 
-    public void setDrugname(String drugname) {
-        this.drugname = drugname;
+    public void setDrugName(String drugName) {
+        this.drugName = drugName;
     }
 
     public String getDosage() {
@@ -24,14 +24,15 @@ public class Medicine {
     }
 
     public void setDosage(String dosage) {
+
         this.dosage = dosage;
     }
 
-    public String getDoctorname() {
-        return doctorname;
-    }
-
-    public void setDoctorname(String doctorname) {
-        this.doctorname = doctorname;
-    }
+//    public String getDoctorname() {
+//        return doctorname;
+//    }
+//
+//    public void setDoctorname(String doctorname) {
+//        this.doctorname = doctorname;
+//    }
 }

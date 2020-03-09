@@ -9,7 +9,7 @@ public class TotalDosageValidator {
     }
 
     //Check to see whether email is valid
-    public boolean valideDrug(){
+    public boolean valideTotalDosage(){
         return !(totalDosage.isEmpty()|| totalDosage.charAt(0)==' '||!(totalDosage.matches("^\\d+$")));
 }
 }

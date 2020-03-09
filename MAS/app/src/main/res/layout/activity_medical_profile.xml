@@ -7,7 +7,7 @@
     tools:context=".MedProfile">
 
     <TextView
-        android:id="@+id/MedNameTextView"
+        android:id="@+id/drugNameTextView"
         android:layout_width="136dp"
         android:layout_height="38dp"
         tools:layout_editor_absoluteX="24dp"
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MedNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/drugNameTextView"
         app:layout_constraintVertical_bias="0.142">
 
         <LinearLayout

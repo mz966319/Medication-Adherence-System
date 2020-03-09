@@ -3,7 +3,9 @@ package com.example.mas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
@@ -43,13 +45,19 @@ public class AddDetails extends AppCompatActivity {
                 EditText Drugname = (EditText)findViewById(R.id.drugName);
                 EditText Dosage = (EditText)findViewById(R.id.dosage);
                 EditText Doctorname = (EditText)findViewById(R.id.doctorName);
+                EditText TotalDosage = (EditText)findViewById(R.id.totalDosageEditText);
 
                 String drugname = Drugname.getText().toString();
                 DrugNameValidator d1 = new DrugNameValidator(drugname);
-                String dosage = Drugname.getText().toString();
-                DosageValidator d2 = new DosageValidator(drugname);
-                String doctorname = Drugname.getText().toString();
+                String dosage = Dosage.getText().toString();
+                DosageValidator d2 = new DosageValidator(dosage);
+                String doctorname = Doctorname.getText().toString();
                 DoctorNameValidator d3 = new DoctorNameValidator(doctorname);
+                String totalDosage = TotalDosage.getText().toString();
+                TotalDosageValidator d4 = new TotalDosageValidator(totalDosage);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AddDetails.this);
+                String userName = prefs.getString("string_id", "no id"); //no id: default value
 
                 if(!d1.valideDrug()) {
                     Toast.makeText(AddDetails.this,"Error drug name!", Toast.LENGTH_LONG).show();
@@ -57,13 +65,14 @@ public class AddDetails extends AppCompatActivity {
                     Toast.makeText(AddDetails.this,"Error dosage!", Toast.LENGTH_LONG).show();
                 } else if (!d3.valideDoctor()) {
                     Toast.makeText(AddDetails.this,"Error doctor name!", Toast.LENGTH_LONG).show();
-                } else {
-                    myRef = database.getReference().child("medicines");
-                   Medicine med = new Medicine(drugname, dosage, doctorname);
-                   myRef.child(drugname).setValue(med);
-//                    myRef.child(drugname).child("drugname").setValue(drugname);
-//                    myRef.child(drugname).child("dosage").setValue(dosage);
-//                    myRef.child(drugname).child("doctorname").setValue(doctorname);
+                } else if (!d4.valideTotalDosage()) {
+                    Toast.makeText(AddDetails.this,"Error total dosage!", Toast.LENGTH_LONG).show();
+                }else {
+                    myRef = database.getReference().child("users");
+
+                    MedicineForPatient med = new MedicineForPatient(drugname,dosage,doctorname,totalDosage);
+
+                    myRef.child(userName).child("medicines").child(drugname).setValue(med);
 
                     Toast.makeText(AddDetails.this, "Firebase connection success", Toast.LENGTH_LONG).show();
 

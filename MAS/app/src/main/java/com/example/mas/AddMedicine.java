@@ -5,7 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +31,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AddMedicine extends AppCompatActivity {
+
     ListView list;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
     ArrayList<String> a = new ArrayList<>();
     ArrayAdapter<String> myadapter;
@@ -42,6 +46,11 @@ public class AddMedicine extends AppCompatActivity {
         list = (ListView)findViewById(R.id.list);
         myadapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1, a);
         list.setAdapter(myadapter);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AddMedicine.this);
+        String userName = prefs.getString("string_id", "no id");
+
+        myRef = database.getReference().child("users").child(userName).child("medicines");
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -70,6 +79,7 @@ public class AddMedicine extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
                 Intent intent = new Intent(AddMedicine.this, MedProfile2.class);
+                intent.putExtra("DRUG_NAME", a.get(position));
                 startActivity(intent);
             }
         });

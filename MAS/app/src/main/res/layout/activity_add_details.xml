@@ -73,12 +73,12 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <EditText
-        android:id="@+id/TotalDosageEditText   "
+        android:id="@+id/totalDosageEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:ems="10"
-        android:hint="Enter total dosage    "
+        android:hint="Enter total dosage"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.252"
@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TotalDosageEditText   " />
+        app:layout_constraintTop_toBottomOf="@+id/totalDosageEditText" />
 
     <LinearLayout
         android:id="@+id/notificationLayout"
