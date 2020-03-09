@@ -14,7 +14,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.w3c.dom.Text;
 
 public class WelcomeUser extends AppCompatActivity {
+
     public void MoveToMainActivity(View view){
+        Intent i = getIntent();
+        String username = i.getStringExtra(MainActivity.USER);
         Intent intent = new Intent(WelcomeUser.this, AddMedicine.class);
         startActivity(intent);
     }

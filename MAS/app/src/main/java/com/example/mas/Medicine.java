@@ -1,28 +1,38 @@
 package com.example.mas;
 
 public class Medicine {
-    private String medName;
-    private String medInfo;
 
-    public Medicine(String medName, String medInfo) {
-        this.medName = medName;
-        this.medInfo = medInfo;
+    private String drugName;
+    private String dosage;
+//    private String doctorname;
+    public Medicine(){}
+    public Medicine(String drugName,String dosage){
+        this.drugName = drugName;
+        this.dosage = dosage;
+//        this.doctorname = doctorname;
+    }
+    public String getDrugName() {
+        return drugName;
     }
 
-    public String getMedName() {
-        return medName;
+    public void setDrugName(String drugName) {
+        this.drugName = drugName;
     }
 
-    public void setMedName(String medName) {
-        this.medName = medName;
+    public String getDosage() {
+        return dosage;
     }
 
-    public String getMedInfo() {
-        return medInfo;
+    public void setDosage(String dosage) {
+
+        this.dosage = dosage;
     }
 
-    public void setMedInfo(String medInfo) {
-        this.medInfo = medInfo;
-    }
-
+//    public String getDoctorname() {
+//        return doctorname;
+//    }
+//
+//    public void setDoctorname(String doctorname) {
+//        this.doctorname = doctorname;
+//    }
 }
