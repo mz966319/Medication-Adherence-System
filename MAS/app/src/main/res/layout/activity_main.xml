@@ -14,6 +14,7 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
+        android:text="222"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +28,7 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:text="333"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETName" />

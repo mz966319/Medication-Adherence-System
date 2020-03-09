@@ -5,10 +5,10 @@ public class MedicineForPatient extends Medicine {
     private String doctorname;
     private String totalDosage;
 
-    public MedicineForPatient(String drugName,String dosage, String doctorName, String totalDosage) {
+    public MedicineForPatient(String drugName,String dosage, String doctorname, String totalDosage) {
         super(drugName,dosage);
         //this.patientName = patientName;
-        this.doctorname = doctorName;
+        this.doctorname = doctorname;
         this.totalDosage = totalDosage;
     }
 
