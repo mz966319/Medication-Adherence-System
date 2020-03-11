@@ -88,6 +88,7 @@ public class Registration extends AppCompatActivity {
                     //Toast.makeText(this,"Empty full name!",Toast.LENGTH_LONG).show();
                 }
                 else {
+
                     databaseUsers = database.getReference().child("users");
                     databaseUsers.child(username).setValue(user);
                     Toast.makeText(Registration.this,"Registration done!!!", Toast.LENGTH_LONG).show();

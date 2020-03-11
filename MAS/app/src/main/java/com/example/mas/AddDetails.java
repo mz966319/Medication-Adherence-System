@@ -2,12 +2,12 @@ package com.example.mas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.Layout;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,14 +15,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
+import java.util.Calendar;
 
 public class AddDetails extends AppCompatActivity {
 
@@ -55,6 +54,8 @@ public class AddDetails extends AppCompatActivity {
                 DoctorNameValidator d3 = new DoctorNameValidator(doctorname);
                 String totalDosage = TotalDosage.getText().toString();
                 TotalDosageValidator d4 = new TotalDosageValidator(totalDosage);
+                Spinner usageSpinner = (Spinner) findViewById(R.id.spinner);
+                String frequency = usageSpinner.getSelectedItem().toString();
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AddDetails.this);
                 String userName = prefs.getString("string_id", "no id"); //no id: default value
@@ -70,14 +71,32 @@ public class AddDetails extends AppCompatActivity {
                 }else {
                     myRef = database.getReference().child("users");
 
-                    MedicineForPatient med = new MedicineForPatient(drugname,dosage,doctorname,totalDosage);
+                    MedicineForPatient med = new MedicineForPatient(drugname,dosage,doctorname,totalDosage, frequency);
 
                     myRef.child(userName).child("medicines").child(drugname).setValue(med);
 
                     Toast.makeText(AddDetails.this, "Firebase connection success", Toast.LENGTH_LONG).show();
 
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(Calendar.HOUR_OF_DAY,23);
+                    calendar.set(Calendar.MINUTE,3);
+                    calendar.set(Calendar.SECOND,0);
+
+                    Intent notificationIntent = new Intent(getApplicationContext(), NotificationReceiver.class);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+
+
+
+
+
+
+
+
                     Intent intent = new Intent(AddDetails.this, AddMedicine.class);
                     startActivity(intent);
+
                 }
             }
         });
@@ -103,7 +122,7 @@ public class AddDetails extends AppCompatActivity {
         String[] arraySpinnerUsage = new String[] {
                 "Just Once", "Everyday", "Odd Days", "Even Days", "Every Week", "Every Month"};
         Spinner usageSpinner = (Spinner) findViewById(R.id.spinner);
-        usageSpinner.setPrompt("Usage Period");
+//        usageSpinner.setPrompt("Usage Period");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinnerUsage);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -117,9 +136,9 @@ public class AddDetails extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hoursSpinner.setAdapter(adapter);
 
-        String[] arraySpinnerMins= new String[59];
-        for(int i=0;i<59;i++){
-            arraySpinnerMins[i]=Integer.toString((i+1));
+        String[] arraySpinnerMins= new String[60];
+        for(int i=0;i<=59;i++){
+            arraySpinnerMins[i]=Integer.toString((i));
         }
         Spinner minsSpinner = (Spinner) findViewById(R.id.spinnerMins);
         adapter = new ArrayAdapter<String>(this,
