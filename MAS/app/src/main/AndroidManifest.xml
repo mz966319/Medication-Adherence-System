@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MedProfile2"></activity>
+        <activity android:name=".DosageLeft"></activity>
+        <activity android:name=".MedProfile2" />
         <activity android:name=".AddDetails" />
         <activity android:name=".CalenderView" />
         <activity android:name=".WelcomeUser" />
