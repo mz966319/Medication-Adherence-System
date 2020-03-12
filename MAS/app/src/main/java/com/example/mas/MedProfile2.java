@@ -33,6 +33,7 @@ public class MedProfile2 extends AppCompatActivity {
     private TextView Dosage ;
     private TextView Doctorname;
     private  TextView TotalDosage;
+    private TextView Frequency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class MedProfile2 extends AppCompatActivity {
           Dosage = (TextView)findViewById(R.id.dosageTextView);
           Doctorname = (TextView)findViewById(R.id.doctornameTextVeiw);
           TotalDosage = (TextView)findViewById(R.id.totalDosageTextView);
+          Frequency = (TextView) findViewById(R.id.freqTextView);
 
         Intent intent = getIntent();
         final String drugname = intent.getExtras().getString("DRUG_NAME");
@@ -62,7 +64,10 @@ public class MedProfile2 extends AppCompatActivity {
                     if(count==2)
                         drugnameText.setText(" Drug name: "+child.getValue(String.class));
                     if(count==3)
+                        Frequency.setText("Frequency : " + child.getValue(String.class));
+                    if(count==4)
                         TotalDosage.setText("Total dosage: " + child.getValue(String.class));
+
                     count++;
                 }
             }

@@ -13,16 +13,16 @@ public class NotificationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Intent i = new Intent(context, WelcomeUser.class);
+        Intent i = new Intent(context, AddMedicine.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context,100, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(android.R.drawable.arrow_up_float)
-                .setContentTitle("Notification title")
-                .setContentText("Notification text")
+                .setSmallIcon(android.R.drawable.arrow_down_float)
+                .setContentTitle("Drug Reminder")
+                .setContentText("You have a drug that should be taken now. Click to view your drug list")
                 .setAutoCancel(true);
         notificationManager.notify(100,builder.build());
 

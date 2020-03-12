@@ -92,7 +92,7 @@ public class Registration extends AppCompatActivity {
                     databaseUsers = database.getReference().child("users");
                     databaseUsers.child(username).setValue(user);
                     Toast.makeText(Registration.this,"Registration done!!!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(Registration.this, WelcomeUser.class);
+                    Intent intent = new Intent(Registration.this, MainActivity.class);
                     startActivity(intent);
                 }
             }

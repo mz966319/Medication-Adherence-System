@@ -71,24 +71,43 @@ public class AddDetails extends AppCompatActivity {
                 }else {
                     myRef = database.getReference().child("users");
 
-                    MedicineForPatient med = new MedicineForPatient(drugname,dosage,doctorname,totalDosage, frequency);
+                    MedicineForPatient med = new MedicineForPatient(drugname, dosage, doctorname, totalDosage, frequency);
 
                     myRef.child(userName).child("medicines").child(drugname).setValue(med);
 
-                    Toast.makeText(AddDetails.this, "Firebase connection success", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(AddDetails.this, "Firebase connection success", Toast.LENGTH_LONG).show();
 
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.set(Calendar.HOUR_OF_DAY,23);
-                    calendar.set(Calendar.MINUTE,3);
-                    calendar.set(Calendar.SECOND,0);
+                    CheckBox checkBox = (CheckBox)findViewById(R.id.checkBox);
 
-                    Intent notificationIntent = new Intent(getApplicationContext(), NotificationReceiver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
-                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+                    if(checkBox.isChecked()) {
+                        int minute;
+                        int hour;
+                        Spinner hoursSpinner = (Spinner) findViewById(R.id.spinnerHours);
+                        Spinner minsSpinner = (Spinner) findViewById(R.id.spinnerMins);
+                        Spinner APMSpinner = (Spinner) findViewById(R.id.spinnerAPm);
+                        hour = Integer.parseInt(hoursSpinner.getSelectedItem().toString());
+                        minute = Integer.parseInt(minsSpinner.getSelectedItem().toString());
+                        if ((APMSpinner.getSelectedItem().toString()).equals("AM")) {
+                            if (hour == 12)
+                                hour = 0;
+                        } else if ((APMSpinner.getSelectedItem().toString()).equals("PM")) {
+                            if (hour != 12)
+                                hour += 12;
+                        }
+
+                        Toast.makeText(AddDetails.this, "a notification is set at " + hour + ": " + minute, Toast.LENGTH_LONG).show();
 
 
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(Calendar.HOUR_OF_DAY, hour);
+                        calendar.set(Calendar.MINUTE, minute);
+                        calendar.set(Calendar.SECOND, 0);
 
+                        Intent notificationIntent = new Intent(getApplicationContext(), NotificationReceiver.class);
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+                    }
 
 
 
@@ -120,7 +139,7 @@ public class AddDetails extends AppCompatActivity {
 
     private void CreateSpinners(){
         String[] arraySpinnerUsage = new String[] {
-                "Just Once", "Everyday", "Odd Days", "Even Days", "Every Week", "Every Month"};
+                "Just Once", "Everyday", "Every Two Days", "Every Week", "Every Month"};
         Spinner usageSpinner = (Spinner) findViewById(R.id.spinner);
 //        usageSpinner.setPrompt("Usage Period");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -140,6 +159,7 @@ public class AddDetails extends AppCompatActivity {
         for(int i=0;i<=59;i++){
             arraySpinnerMins[i]=Integer.toString((i));
         }
+
         Spinner minsSpinner = (Spinner) findViewById(R.id.spinnerMins);
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinnerMins);
