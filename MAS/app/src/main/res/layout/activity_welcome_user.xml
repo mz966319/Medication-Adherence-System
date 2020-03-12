@@ -7,6 +7,18 @@
     tools:context=".WelcomeUser">
 
     <Button
+        android:id="@+id/BtDosLeft"
+        android:layout_width="215dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="goTODosLeft"
+        android:text="Dosage Left"
+        app:layout_constraintBottom_toTopOf="@+id/BtnAddMedicine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+<!--    app:layout_constraintTop_toBottomOf="@+id/ETPassword"-->
+    <Button
         android:id="@+id/BtnAddMedicine"
         android:layout_width="221dp"
         android:layout_height="43dp"
@@ -16,6 +28,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeTextView" />
+
 
     <TextView
         android:id="@+id/WelcomeTextView"

@@ -1,13 +1,25 @@
 package com.example.mas;
-
+/**
+ *<h1>medicine</h1>
+ *
+ * This class is used to create objects for users.
+ *
+ * @author Moaaaz Baiumy
+ * @version 1.0
+ * @since 2020-02-26
+ */
 public class MedicineForPatient extends Medicine {
     //private String patientName;
     private String doctorname;
     private String totalDosage;
     private String frequency;
-
+//    private String drugName;
+//    private String dosage;
+    public MedicineForPatient(){}
     public MedicineForPatient(String drugName, String dosage, String doctorname, String totalDosage, String frequency) {
         super(drugName,dosage);
+//        this.drugName = drugName;
+//        this. dosage = dosage;
         //this.patientName = patientName;
         this.doctorname = doctorname;
         this.totalDosage = totalDosage;

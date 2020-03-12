@@ -1,5 +1,13 @@
 package com.example.mas;
-
+/**
+ *<h1>profile medicine!</h1>
+ *
+ * This activity is used to display the info of each drug.
+ *
+ * @author Vivian Gao
+ * @version 1.0
+ * @since 2020-02-20
+ */
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,12 +36,14 @@ import java.util.List;
 public class MedProfile2 extends AppCompatActivity {
     private FirebaseDatabase  database = FirebaseDatabase.getInstance();//.getReference();
     private DatabaseReference myRef = database.getReference();
+//    public static final String DRUG = "com.example.mas.MESSAGE";
 
     private TextView drugnameText;
     private TextView Dosage ;
     private TextView Doctorname;
     private  TextView TotalDosage;
     private TextView Frequency;
+    private String drugNameee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +71,10 @@ public class MedProfile2 extends AppCompatActivity {
                         Doctorname.setText("Doctor name: " + child.getValue(String.class));
                     if(count==1)
                         Dosage.setText("Dosage: " + child.getValue(String.class));
-                    if(count==2)
-                        drugnameText.setText(" Drug name: "+child.getValue(String.class));
+                    if(count==2) {
+                        drugnameText.setText(" Drug name: " + child.getValue(String.class));
+                        drugNameee=child.getValue(String.class);
+                    }
                     if(count==3)
                         Frequency.setText("Frequency : " + child.getValue(String.class));
                     if(count==4)
@@ -83,8 +95,9 @@ public class MedProfile2 extends AppCompatActivity {
 
 
 
-    public void MoveToCalenderActivity(View view){
-        Intent intent = new Intent(MedProfile2.this, CalenderView.class);
+    public void MoveToTakenActivity(View view){
+        Intent intent = new Intent(MedProfile2.this, TakenPage.class);
+        intent.putExtra("DRUG",drugNameee);
         startActivity(intent);
     }
 
@@ -92,4 +105,5 @@ public class MedProfile2 extends AppCompatActivity {
         Intent intent = new Intent(MedProfile2.this, AddMedicine.class);
         startActivity(intent);
     }
+
 }

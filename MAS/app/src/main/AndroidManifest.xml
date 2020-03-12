@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mas">
-<uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MedProfile2"></activity>
+        <activity android:name=".TakenHistory"></activity>
+        <activity android:name=".TakenPage" />
+        <activity android:name=".DosageLeft" />
+        <activity android:name=".MedProfile2" />
         <activity android:name=".AddDetails" />
         <activity android:name=".CalenderView" />
         <activity android:name=".WelcomeUser" />
-        <activity android:name=".Registration" />
-<!--        <activity android:name=".AdDetails" />-->
-        <activity android:name=".AddMedicine" />
-<!--        <activity android:name=".medicalProfile" />-->
+        <activity android:name=".Registration" /> <!-- <activity android:name=".AdDetails" /> -->
+        <activity android:name=".AddMedicine" /> <!-- <activity android:name=".medicalProfile" /> -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".NotificationReceiver"/>
+
+        <receiver android:name=".NotificationReceiver" />
     </application>
 
 </manifest>

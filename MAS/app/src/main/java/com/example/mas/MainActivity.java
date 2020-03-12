@@ -1,5 +1,13 @@
 package com.example.mas;
-
+/**
+ *<h1>login</h1>
+ *
+ * This activity is used to login to the app.
+ *
+ * @author Moaaaz Baiumy
+ * @version 1.0
+ * @since 2020-02-26
+ */
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +18,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseError;
@@ -33,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();//.getReference();
     private DatabaseReference databaseUsers = database.getReference();
     public static final String USER = "com.example.mas.MESSAGE";
+    private TextView errorMes;
 
 
 
@@ -46,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         Password = (EditText)findViewById(R.id.ETPassword);
         Login = (Button)findViewById(R.id.BtnLogin);
         Register = (Button)findViewById(R.id.BtnRegister);
+        errorMes = (TextView) findViewById(R.id.TVerrors);
+        errorMes.setText("");
         databaseUsers.child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -77,16 +89,17 @@ public class MainActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor = prefs.edit();
                             editor.putString("string_id", username);
                             editor.commit();
-
-
-                            startActivity(intent);
                             logInMessage = "Logged in successfully";
+                            errorMes.setText(logInMessage);
+                            startActivity(intent);
+
                             //Toast.makeText(MainActivity.this,"Logged in successfully", Toast.LENGTH_LONG).show();
 
                         }
                     }
                 }
-                Toast.makeText(MainActivity.this,logInMessage, Toast.LENGTH_LONG).show();
+                errorMes.setText(logInMessage);
+//                Toast.makeText(MainActivity.this,logInMessage, Toast.LENGTH_LONG).show();
             }
         });
 
