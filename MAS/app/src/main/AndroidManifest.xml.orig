@@ -9,13 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+        <activity android:name=".MedProfile2"></activity>
+=======
         <activity android:name=".TakenHistoryPage"></activity>
         <activity android:name=".MedProfile2" />
+>>>>>>> userStory2
         <activity android:name=".AddDetails" />
         <activity android:name=".CalenderView" />
         <activity android:name=".WelcomeUser" />
         <activity android:name=".Registration" />
+<<<<<<< HEAD
+<!--        <activity android:name=".AdDetails" />-->
+=======
         <activity android:name=".AdDetails" />
+>>>>>>> userStory2
         <activity android:name=".AddMedicine" />
 <!--        <activity android:name=".medicalProfile" />-->
         <activity android:name=".MainActivity">

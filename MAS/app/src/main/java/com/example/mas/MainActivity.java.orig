@@ -32,13 +32,12 @@ public class MainActivity extends AppCompatActivity {
     Button Login, Register;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();//.getReference();
     private DatabaseReference databaseUsers = database.getReference();
-    EditText Username, Password;
-    Button Login, Register;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();//.getReference();
-    private DatabaseReference databaseUsers = database.getReference();
+<<<<<<< HEAD
     public static final String USER = "com.example.mas.MESSAGE";
 
 
+=======
+>>>>>>> userStory2
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     if(tryUser.getUsername().equals(username)){
                         if(tryUser.getPassword().equals(password)){
                             Intent intent = new Intent(MainActivity.this, WelcomeUser.class);
+<<<<<<< HEAD
 
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                             SharedPreferences.Editor editor = prefs.edit();
@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                             editor.commit();
 
 
+=======
+>>>>>>> userStory2
                             startActivity(intent);
                             logInMessage = "Logged in successfully";
                             //Toast.makeText(MainActivity.this,"Logged in successfully", Toast.LENGTH_LONG).show();
@@ -103,8 +105,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    }
-
-
+}
 
 
