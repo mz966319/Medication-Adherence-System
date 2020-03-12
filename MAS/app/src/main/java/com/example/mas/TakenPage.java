@@ -109,7 +109,7 @@ public class TakenPage extends AppCompatActivity {
         myR.child(s1).setValue(r);
 
         //go to Taken List Page and send username and med name
-        Intent intent = new Intent(TakenPage.this, MainActivity.class);
+        Intent intent = new Intent(TakenPage.this, TakenHistoryPage.class);
 //        intent.putExtra(TakenPage.USER_NAME, r.getUsername());//actually is taken list activity
 //        intent.putExtra(TakenPage.MED_NAME, r.getMed_name());//actually is taken list activity
         startActivity(intent);
@@ -117,14 +117,14 @@ public class TakenPage extends AppCompatActivity {
 
     //button for 'record later' :  go back to the medicine profile
     public void clickOnCancel(View view){
-        Intent intent = new Intent(TakenPage.this, MainActivity.class );
+        Intent intent = new Intent(TakenPage.this, MedProfile2.class );
         //should be change as below
 //        Intent intent = new Intent(TakenPage.this, MedProfile.class );
         startActivity(intent);
     }
 
     public void clickOnTakenHis(View view){
-        Intent intent = new Intent(TakenPage.this, MainActivity.class);
+        Intent intent = new Intent(TakenPage.this, TakenHistoryPage.class);
         startActivity(intent);
     }
 }
