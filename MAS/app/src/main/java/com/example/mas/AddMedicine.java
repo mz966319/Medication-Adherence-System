@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AddMedicine extends AppCompatActivity {
-    DatabaseReference myRef;
+
     ListView list;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
@@ -80,16 +80,6 @@ public class AddMedicine extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
                 Intent intent = new Intent(AddMedicine.this, MedProfile2.class);
                 intent.putExtra("DRUG_NAME", a.get(position));
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-                Intent intent = new Intent(AddMedicine.this, MedProfile2.class);
-                startActivity(intent);
-            }
-        });
-
-    }
-    public void openNew(View view) {
-        Intent intent = new Intent(AddMedicine.this, AddDetails.class);
                 startActivity(intent);
             }
         });

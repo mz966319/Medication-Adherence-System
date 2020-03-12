@@ -44,28 +44,3 @@ dependencies {
 dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }
-/*
-dependencies {
-    // Unit testing dependencies
-    testImplementation 'junit:junit:4.12'
-}
-
-dependencies {
-    implementation 'androidx.appcompat:appcompat:+'
-    implementation 'androidx.constraintlayout:constraintlayout:+'
-}
-
-dependencies {
-    implementation 'androidx.appcompat:appcompat:+'
-    implementation 'androidx.constraintlayout:constraintlayout:+'
-}
-
-dependencies {
-    implementation 'com.google.firebase:firebase-database:16.0.4'
-}
-
-dependencies {
-    implementation 'androidx.appcompat:appcompat:+'
-    implementation 'androidx.constraintlayout:constraintlayout:+'
-}
-*/

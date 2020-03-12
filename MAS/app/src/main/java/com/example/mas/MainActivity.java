@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity {
     Button Login, Register;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();//.getReference();
     private DatabaseReference databaseUsers = database.getReference();
-    EditText Username, Password;
-    Button Login, Register;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();//.getReference();
-    private DatabaseReference databaseUsers = database.getReference();
     public static final String USER = "com.example.mas.MESSAGE";
 
 
@@ -103,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    }
-
-
+}
 
 
