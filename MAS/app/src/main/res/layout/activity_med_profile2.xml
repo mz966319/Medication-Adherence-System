@@ -10,7 +10,7 @@
         android:id="@+id/ShowCalenderBt"
         android:layout_width="165dp"
         android:layout_height="44dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="95dp"
         android:onClick="MoveToCalenderActivity"
         android:text="Calender"
         android:textStyle="bold"
@@ -50,6 +50,7 @@
         android:layout_marginTop="25dp"
         android:text="doctor name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dosageTextView" />
 
@@ -67,7 +68,7 @@
         android:id="@+id/drugNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="95dp"
         android:text="drugname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,14 +82,18 @@
         android:text="totalDosage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctornameTextVeiw" />
+        app:layout_constraintTop_toBottomOf="@+id/freqTextView" />
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="409dp"
-        android:layout_height="108dp"
+    <TextView
+        android:id="@+id/freqTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Frequency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/doctornameTextVeiw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
