@@ -1,5 +1,13 @@
 package com.example.mas;
-
+/**
+ *<h1>Add details!</h1>
+ *
+ * This activity is used to added details
+ *
+ * @author Yurunyun Wang
+ * @version 1.0
+ * @since 2020-03-8
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;

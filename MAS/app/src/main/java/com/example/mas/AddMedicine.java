@@ -29,7 +29,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+/**
+ *<h1>Add medicine</h1>
+ *
+ * This activity is used to list and add medicines.
+ *
+ * @author Vivian Gao
+ * @version 1.0
+ * @since 2020-03-20
+ */
 public class AddMedicine extends AppCompatActivity {
 
     ListView list;

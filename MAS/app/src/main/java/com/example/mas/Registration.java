@@ -1,5 +1,13 @@
 package com.example.mas;
-
+/**
+ *<h1>Add medicine</h1>
+ *
+ * This activity is used to let user register.
+ *
+ * @author Mohammed, Colin
+ * @version 1.3
+ * @since 2020-02-20
+ */
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,7 +40,8 @@ import java.util.regex.Pattern;
 public class Registration extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.testProject.MESSAGE";
     private static final String USER = "com.example.a2.MESSAGE";
-
+    private TextView errorMes;
+    private String  registrError;
     private FirebaseDatabase  database = FirebaseDatabase.getInstance();//.getReference();
     private DatabaseReference databaseUsers = database.getReference("users");
     //DatabaseReference ref = databaseUsers.getRef("server/saving-data/fireblog");
@@ -53,7 +62,9 @@ public class Registration extends AppCompatActivity {
         final EditText Username = (EditText) findViewById(R.id.ETUsername);
         final EditText Password = (EditText) findViewById(R.id.ETPassword);
         final Button Register = (Button) findViewById(R.id.BtnRegister);
-
+        errorMes = (TextView) findViewById(R.id.regEError);
+        errorMes.setText("");
+        registrError="";
         databaseUsers.child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -77,14 +88,18 @@ public class Registration extends AppCompatActivity {
                 String password = Password.getText().toString();
                 String fullname = Fullname.getText().toString();
 
+
                 User user = new User(username, password, fullname);
                 if(!user.username_Empty_Validate()){
+                    registrError="Empty username!";
                     //Toast.makeText(this,"Empty username!",Toast.LENGTH_LONG).show();
                 }
                 else if (!user.password_Empty_Validate()){
+                    registrError="Empty password!";
                     //Toast.makeText(this,"Empty password!",Toast.LENGTH_LONG).show();
                 }
                 else if (!user.fullname_Empty_Validate()){
+                    registrError="Empty full name!";
                     //Toast.makeText(this,"Empty full name!",Toast.LENGTH_LONG).show();
                 }
                 else {
@@ -95,6 +110,7 @@ public class Registration extends AppCompatActivity {
                     Intent intent = new Intent(Registration.this, MainActivity.class);
                     startActivity(intent);
                 }
+                errorMes.setText(registrError);
             }
         });
     }

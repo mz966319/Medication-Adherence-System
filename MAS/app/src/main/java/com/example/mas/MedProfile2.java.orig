@@ -43,7 +43,10 @@ public class MedProfile2 extends AppCompatActivity {
     private TextView Doctorname;
     private  TextView TotalDosage;
     private TextView Frequency;
+<<<<<<< HEAD
+=======
     private String drugNameee;
+>>>>>>> userStory5
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

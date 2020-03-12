@@ -31,6 +31,7 @@ public class WelcomeUser extends AppCompatActivity {
 
         TextView WelcomeTextView = (TextView) findViewById(R.id.WelcomeTextView);
         Button BtnAddMedicine = (Button) findViewById(R.id.BtnAddMedicine);
+        Button BtDosLeft = (Button) findViewById(R.id.BtDosLeft);
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
@@ -47,4 +48,10 @@ public class WelcomeUser extends AppCompatActivity {
 
 
     }
+    public void goTODosLeft(View v) {
+        Intent intent = new Intent(WelcomeUser.this, DosageLeft.class);
+        startActivity(intent);
+
+    }
+
 }

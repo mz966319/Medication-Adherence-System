@@ -13,9 +13,13 @@ public class MedicineForPatient extends Medicine {
     private String doctorname;
     private String totalDosage;
     private String frequency;
+<<<<<<< HEAD
+
+=======
 //    private String drugName;
 //    private String dosage;
     public MedicineForPatient(){}
+>>>>>>> userStory5
     public MedicineForPatient(String drugName, String dosage, String doctorname, String totalDosage, String frequency) {
         super(drugName,dosage);
 //        this.drugName = drugName;

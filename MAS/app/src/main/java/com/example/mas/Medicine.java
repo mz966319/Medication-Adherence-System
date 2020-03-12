@@ -1,4 +1,14 @@
 package com.example.mas;
+/**
+ /**
+ *<h1>medicine</h1>
+ *
+ * This class is used to create classes
+ *
+ * @author Vivian Gao
+ * @version 1.0
+ * @since 2020-03-20
+ */
 
 public class Medicine {
 
